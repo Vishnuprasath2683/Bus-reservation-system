@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Bus Reservation System in Django Framework</title>
+
+    <!-- jQuery first, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <style>
+        body{
+            background-image: url(data:image/jpeg;base64,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);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-gradient bg-dark">
+    <div class="container">
+            <a class="navbar-brand" href="#" style="color: block;">vishnuprasath booking</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav" >
+                <a class="nav-item nav-link active" href="{% url 'home' %}" style="color: block;">Home/Login</a>
+                <a class="nav-item nav-link" href="{% url 'findbus' %}" style="color: block;">Find Bus</a>
+                <a class="nav-item nav-link" href="{% url 'seebookings' %}" style="color: block;">See Bookings</a>
+                {% if request.user.is_active %}
+                <a class="nav-item nav-link " href="{% url 'signout' %}" style="color: white;">Logout</a>
+                {% else %}
+                <a class="nav-item nav-link " href="{% url 'signup' %}" style="color: block;">Registration</a>
+                {% endif %}
+
+
+            </div>
+        </div>
+    </div>
+</nav>
+{% block content %}
+{% endblock %}
+
+</body>
+</html>
